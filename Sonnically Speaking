@@ -1,0 +1,16 @@
+
+live_loop :listen do
+    set_sched_ahead_time! 0.1
+endimport bs
+from gpiozero import DistanceSensor
+from time import sleep
+
+sensor = DistanceSensor(echo=17, trigger=4)
+
+while True:
+    print(sensor.distance)
+    sleep(1)
+ live_loop :listen do
+    message = sync "/play_this"
+    note = message[:args][0]
+end   
